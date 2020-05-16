@@ -83,12 +83,13 @@ function getPolynom(...args) {
  *   memoizer() => the same random number  (next run, returns the previous cached result)
  */
 function memoize(func) {
-  return function () {
+  function fn() {
     if (!this.memoizedVal) {
       this.memoizedVal = func();
     }
     return this.memoizedVal;
-  };
+  }
+  return fn;
 }
 
 
